@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Tadka - Homemade Food Delivery in Jaipur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E65D2E;
+            --secondary: #FFC107;
+            --accent: #2E7D32;
+            --light-bg: #f9f7f2;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1596450514746-5f0b66886d93?auto=format&fit=crop&q=80') center/cover;
+        }
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        .theme-toggle {
+            cursor: pointer;
+        }
+        /* Dark mode styles */
+        .dark {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        .dark .bg-white {
+            background-color: #2a2a2a;
+            color: #f0f0f0;
+        }
+        .dark .bg-gray-50 {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        .dark .text-gray-600 {
+            color: #d0d0d0;
+        }
+        .dark .bg-white.p-6 {
+            background-color: #2a2a2a;
+        }
+        .dark .border {
+            border-color: #444;
+        }
+        .dark nav {
+            background-color: #2a2a2a;
+            color: #f0f0f0;
+        }
+        .dark .menu-item {
+            background-color: #2a2a2a;
+        }
+        .dark footer {
+            background-color: #222;
+        }
+        .menu-slider {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-[var(--primary)]">Miss Tadka</div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-[var(--primary)] transition-colors">Home</a>
+                    <a href="#why" class="hover:text-[var(--primary)] transition-colors">Why Us</a>
+                    <a href="#menu" class="hover:text-[var(--primary)] transition-colors">Menu</a>
+                    <a href="#how" class="hover:text-[var(--primary)] transition-colors">How It Works</a>
+                    <a href="#testimonials" class="hover:text-[var(--primary)] transition-colors">Testimonials</a>
+                    <a href="#contact" class="hover:text-[var(--primary)] transition-colors">Contact</a>
+                    <div class="theme-toggle ml-4" id="theme-toggle">
+                        <i class="bi bi-moon-fill text-xl"></i>
+                    </div>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <div class="theme-toggle mr-4" id="mobile-theme-toggle">
+                        <i class="bi bi-moon-fill text-xl"></i>
+                    </div>
+                    <button id="mobile-menu-button" class="text-2xl">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden w-full bg-white shadow-lg transition-colors duration-300">
+            <div class="px-4 py-3 space-y-3">
+                <a href="#home" class="block hover:text-[var(--primary)]">Home</a>
+                <a href="#why" class="block hover:text-[var(--primary)]">Why Us</a>
+                <a href="#menu" class="block hover:text-[var(--primary)]">Menu</a>
+                <a href="#how" class="block hover:text-[var(--primary)]">How It Works</a>
+                <a href="#testimonials" class="block hover:text-[var(--primary)]">Testimonials</a>
+                <a href="#contact" class="block hover:text-[var(--primary)]">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center text-white">
+        <div class="max-w-7xl mx-auto px-4 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Ghar Jaisa Khana, Delivered Daily!</h1>
+            <p class="text-xl mb-4">Healthy, Hygienic, and Full of Tadka</p>
+            <p class="text-lg mb-8">Fresh, homemade meals prepared with love in Jaipur</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <button class="bg-[var(--primary)] hover:bg-[#d54d1f] text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 w-full sm:w-auto">
+                    Order Now at ₹150/meal
+                </button>
+                <a href="https://wa.me/1234567890" class="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-full text-lg transition-all duration-300 w-full sm:w-auto">
+                    <i class="bi bi-whatsapp mr-2"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Miss Tadka -->
+    <section id="why" class="py-16 bg-[var(--light-bg)] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Miss Tadka?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md transition-colors duration-300">
+                    <i class="bi bi-house-heart text-5xl text-[var(--primary)] mb-4"></i>
+                    <h3 class="font-semibold text-lg mb-2">100% Homemade Food</h3>
+                    <p class="text-gray-600">Prepared by local home chefs with fresh ingredients</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md transition-colors duration-300">
+                    <i class="bi bi-currency-rupee text-5xl text-[var(--primary)] mb-4"></i>
+                    <h3 class="font-semibold text-lg mb-2">₹150 Per Meal</h3>
+                    <p class="text-gray-600">Affordable pricing with no hidden charges</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md transition-colors duration-300">
+                    <i class="bi bi-shield-check text-5xl text-[var(--primary)] mb-4"></i>
+                    <h3 class="font-semibold text-lg mb-2">Hygienic Packaging</h3>
+                    <p class="text-gray-600">Safe, sealed containers for your health</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md transition-colors duration-300">
+                    <i class="bi bi-clock-history text-5xl text-[var(--primary)] mb-4"></i>
+                    <h3 class="font-semibold text-lg mb-2">On-Time Delivery</h3>
+                    <p class="text-gray-600">Punctual service throughout Jaipur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Times Section -->
+    <section class="py-16 bg-white transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Live Prayer Times</h2>
+            <p class="text-center mb-10 text-gray-600">Local prayer times for Jaipur, updated daily</p>
+            
+            <div id="prayer-times" class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
+                <!-- Prayer time cards will be inserted here via JavaScript -->
+                <div class="prayer-card bg-[var(--light-bg)] rounded-lg shadow p-6 text-center transition-all hover:shadow-lg">
+                    <h3 class="text-[var(--primary)] font-bold mb-2">Fajr</h3>
+                    <p class="text-2xl font-semibold" id="fajr-time">05:12 AM</p>
+                </div>
+                <div class="prayer-card bg-[var(--light-bg)] rounded-lg shadow p-6 text-center transition-all hover:shadow-lg">
+                    <h3 class="text-[var(--primary)] font-bold mb-2">Dhuhr</h3>
+                    <p class="text-2xl font-semibold" id="dhuhr-time">12:15 PM</p>
+                </div>
+                <div class="prayer-card bg-[var(--light-bg)] rounded-lg shadow p-6 text-center transition-all hover:shadow-lg">
+                    <h3 class="text-[var(--primary)] font-bold mb-2">Asr</h3>
+                    <p class="text-2xl font-semibold" id="asr-time">03:45 PM</p>
+                </div>
+                <div class="prayer-card bg-[var(--light-bg)] rounded-lg shadow p-6 text-center transition-all hover:shadow-lg">
+                    <h3 class="text-[var(--primary)] font-bold mb-2">Maghrib</h3>
+                    <p class="text-2xl font-semibold" id="maghrib-time">06:30 PM</p>
+                </div>
+                <div class="prayer-card bg-[var(--light-bg)] rounded-lg shadow p-6 text-center transition-all hover:shadow-lg">
+                    <h3 class="text-[var(--primary)] font-bold mb-2">Isha</h3>
+                    <p class="text-2xl font-semibold" id="isha-time">08:00 PM</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-sm text-gray-600">Based on Jaipur, Rajasthan. Last updated: <span id="prayer-update-time">Today</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hadith of the Day -->
+    <section class="py-16 bg-[var(--light-bg)] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-center mb-8">Hadith of the Day</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md transition-colors duration-300">
+                <div class="mb-6">
+                    <i class="bi bi-quote text-5xl text-[var(--primary)]"></i>
+                </div>
+                <p class="text-xl italic mb-6" id="hadith-text">The Prophet Muhammad (peace be upon him) said: "The best of you are those who are best to their families, and I am the best of you to my family."</p>
+                <p class="font-semibold" id="hadith-source">Reported by al-Tirmidhi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Menu -->
+    <section id="menu" class="py-16 bg-white transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Today's Special Menu</h2>
+            <p class="text-center mb-10 text-gray-600">Fresh homemade meals that change daily</p>
+            
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold">Meal Options</h3>
+                <div class="flex gap-2">
+                    <button id="prev-menu" class="bg-[var(--primary)] text-white p-2 rounded-full">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button id="next-menu" class="bg-[var(--primary)] text-white p-2 rounded-full">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="relative overflow-hidden">
+                <div id="menu-slider" class="flex gap-6 overflow-x-auto pb-4 no-scrollbar menu-slider">
+                    <div class="menu-item flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+                        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&q=80" alt="Dal Tadka" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Dal Tadka</h3>
+                            <p class="text-gray-600 mb-4">Creamy lentils tempered with Indian spices</p>
+                            <p class="text-[var(--primary)] font-bold">₹150</p>
+                        </div>
+                    </div>
+                    <div class="menu-item flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+                        <img src="https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&q=80" alt="Paneer Butter Masala" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Paneer Butter Masala</h3>
+                            <p class="text-gray-600 mb-4">Rich, creamy paneer in tomato gravy</p>
+                            <p class="text-[var(--primary)] font-bold">₹150</p>
+                        </div>
+                    </div>
+                    <div class="menu-item flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+                        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&q=80" alt="Aloo Gobhi" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Aloo Gobhi</h3>
+                            <p class="text-gray-600 mb-4">Classic potato and cauliflower curry</p>
+                            <p class="text-[var(--primary)] font-bold">₹150</p>
+                        </div>
+                    </div>
+                    <div class="menu-item flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+                        <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&q=80" alt="Rajma Chawal" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Rajma Chawal</h3>
+                            <p class="text-gray-600 mb-4">Kidney bean curry with steamed rice</p>
+                            <p class="text-[var(--primary)] font-bold">₹150</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <h3 class="text-xl font-semibold mb-4">All Meals Include:</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-[var(--light-bg)] p-4 rounded-lg transition-colors duration-300">
+                        <i class="bi bi-circle-fill text-[var(--primary)] text-xs mr-2"></i>
+                        <span>4 Fresh Chapatis</span>
+                    </div>
+                    <div class="bg-[var(--light-bg)] p-4 rounded-lg transition-colors duration-300">
+                        <i class="bi bi-circle-fill text-[var(--primary)] text-xs mr-2"></i>
+                        <span>Steamed Rice</span>
+                    </div>
+                    <div class="bg-[var(--light-bg)] p-4 rounded-lg transition-colors duration-300">
+                        <i class="bi bi-circle-fill text-[var(--primary)] text-xs mr-2"></i>
+                        <span>Fresh Salad</span>
+                    </div>
+                    <div class="bg-[var(--light-bg)] p-4 rounded-lg transition-colors duration-300">
+                        <i class="bi bi-circle-fill text-[var(--primary)] text-xs mr-2"></i>
+                        <span>Seasonal Dessert</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-[var(--primary)] text-white p-8 rounded-lg text-center">
+                <h3 class="text-2xl font-bold mb-4">Subscription Plans</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-bold mb-2">Daily</h4>
+                        <p class="text-3xl font-bold mb-4">₹150<span class="text-sm font-normal">/meal</span></p>
+                        <p class="mb-4">Perfect for trying us out</p>
+                        <button class="bg-[var(--primary)] text-white py-2 px-6 rounded-full w-full">Order Now</button>
+                    </div>
+                    <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md transform scale-105 border-2 border-[var(--secondary)]">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[var(--secondary)] text-black text-sm font-bold py-1 px-4 rounded-full">
+                            Popular
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Weekly</h4>
+                        <p class="text-3xl font-bold mb-4">₹999<span class="text-sm font-normal">/week</span></p>
+                        <p class="mb-4">Save ₹50 on 7 meals</p>
+                        <button class="bg-[var(--primary)] text-white py-2 px-6 rounded-full w-full">Order Now</button>
+                    </div>
+                    <div class="bg-white text-gray-800 p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-bold mb-2">Monthly</h4>
+                        <p class="text-3xl font-bold mb-4">₹3999<span class="text-sm font-normal">/month</span></p>
+                        <p class="mb-4">Save ₹500 on 30 meals</p>
+                        <button class="bg-[var(--primary)] text-white py-2 px-6 rounded-full w-full">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Islamic News Section -->
+    <section class="py-16 bg-[var(--light-bg)] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Latest Islamic News</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+                    <img src="https://images.unsplash.com/photo-1584810359583-96fc3448beaa?auto=format&fit=crop&q=80" alt="News Article" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="bg-[var(--accent)] text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block">Islamic World</div>
+                        <h3 class="font-bold text-xl mb-2">New Islamic Center Opens in Jaipur</h3>
+                        <p class="text-gray-600 mb-4">The facility will serve the community with prayer spaces, educational programs, and community services.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">2 hours ago</span>
+                            <a href="#" class="text-[var(--primary)] font-semibold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+                    <img src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80" alt="News Article" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="bg-[var(--accent)] text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block">Quran & Hadith</div>
+                        <h3 class="font-bold text-xl mb-2">Virtual Quran Study Circle Gains Popularity</h3>
+                        <p class="text-gray-600 mb-4">Online learning platforms have seen increased participation in Quranic studies during the pandemic.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Yesterday</span>
+                            <a href="#" class="text-[var(--primary)] font-semibold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition-colors duration-300">
+                    <img src="https://images.unsplash.com/photo-1560269507-c5e084fce696?auto=format&fit=crop&q=80" alt="News Article" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="bg-[var(--accent)] text-white text-xs font-bold px-2 py-1 rounded mb-3 inline-block">Science & Technology</div>
+                        <h3 class="font-bold text-xl mb-2">Muslim Scientists Contribute to Breakthrough Research</h3>
+                        <p class="text-gray-600 mb-4">A team of researchers has made significant advances in renewable energy technology.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">3 days ago</span>
+                            <a href="#" class="text-[var(--primary)] font-semibold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <button class="bg-[var(--primary)] hover:bg-[#d54d1f] text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300">
+                    View All News
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how" class="py-16 bg-white transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">How it Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-[var(--secondary)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold">1</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4">Choose Your Meal</h3>
+                    <p class="text-gray-600">Select from our daily rotating menu of home-cooked meals, with new options each day</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-[var(--secondary)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold">2</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4">We Cook Fresh</h3>
+                    <p class="text-gray-600">Our local home chefs prepare your meal with fresh ingredients and authentic recipes</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-[var(--secondary)] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold">3</span>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4">We Deliver to You</h3>
+                    <p class="text-gray-600">Enjoy your meal delivered to your doorstep in hygienic packaging, right on time</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-[var(--light-bg)] p-8 rounded-lg text-center transition-colors duration-300">
+                <h3 class="text-xl font-bold mb-4">Have Special Dietary Requirements?</h3>
+                <p class="mb-6">We can customize meals to accommodate your dietary needs. Just let us know!</p>
+                <button class="bg-[var(--primary)] hover:bg-[#d54d1f] text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300">
+                    Contact Us for Custom Meals
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-16 bg-[var(--light-bg)] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Featured Videos</h2>
+            <div class="aspect-w-16 aspect-h-9 mb-10">
+                <div class="w-full h-0 pb-[56.25%] relative bg-black rounded-lg overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80" alt="Video Thumbnail" class="w-full h-full object-cover opacity-70">
+                        <div class="absolute">
+                            <button class="bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full w-20 h-20 flex items-center justify-center transition-all duration-300">
+                                <i class="bi bi-play-fill text-[var(--primary)] text-5xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="relative bg-black rounded-lg overflow-hidden cursor-pointer group">
+                    <div class="w-full h-0 pb-[56.25%] relative">
+                        <img src="https://images.unsplash.com/photo-1605246811037-9c05fc67bb6c?auto=format&fit=crop&q=80" alt="Video Thumbnail" class="w-full h-full absolute object-cover group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-white bg-opacity-80 rounded-full w-12 h-12 flex items-center justify-center">
+                                <i class="bi bi-play-fill text-[var(--primary)] text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white transition-colors duration-300">
+                        <h3 class="font-semibold mb-1 line-clamp-1">Meet Our Home Chefs</h3>
+                        <p class="text-sm text-gray-500">3:45 • 560 views</p>
+                    </div>
+                </div>
+                <div class="relative bg-black rounded-lg overflow-hidden cursor-pointer group">
+                    <div class="w-full h-0 pb-[56.25%] relative">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80" alt="Video Thumbnail" class="w-full h-full absolute object-cover group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-white bg-opacity-80 rounded-full w-12 h-12 flex items-center justify-center">
+                                <i class="bi bi-play-fill text-[var(--primary)] text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white transition-colors duration-300">
+                        <h3 class="font-semibold mb-1 line-clamp-1">How We Prepare Your Meals</h3>
+                        <p class="text-sm text-gray-500">5:12 • 1.2K views</p>
+                    </div>
+                </div>
+                <div class="relative bg-black rounded-lg overflow-hidden cursor-pointer group">
+                    <div class="w-full h-0 pb-[56.25%] relative">
+                        <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&q=80" alt="Video Thumbnail" class="w-full h-full absolute object-cover group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-white bg-opacity-80 rounded-full w-12 h-12 flex items-center justify-center">
+                                <i class="bi bi-play-fill text-[var(--primary)] text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white transition-colors duration-300">
+                        <h3 class="font-semibold mb-1 line-clamp-1">Customer Testimonials</h3>
+                        <p class="text-sm text-gray-500">4:30 • 876 views</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 bg-white transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+            
+            <div class="relative">
+                <div class="flex justify-between items-center absolute top-1/2 -translate-y-1/2 w-full px-4 z-10">
+                    <button id="prev-testimonial" class="bg-[var(--primary)] text-white p-2 rounded-full shadow-md">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button id="next-testimonial" class="bg-[var(--primary)] text-white p-2 rounded-full shadow-md">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div id="testimonials-container" class="overflow-hidden">
+                    <div id="testimonials-slider" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Testimonial 1 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 transition-colors duration-300">
+                                <div class="flex items-center mb-6">
+                                    <div class="text-[var(--primary)]">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </div>
+                                <p class="text-lg mb-6">"Truly feels like home-cooked food. The taste and quality are exceptional! I've been ordering for weeks and have never been disappointed."</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80" alt="Customer" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">Priya S.</p>
+                                        <p class="text-sm text-gray-600">Regular Customer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 2 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 transition-colors duration-300">
+                                <div class="flex items-center mb-6">
+                                    <div class="text-[var(--primary)]">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                    </div>
+                                </div>
+                                <p class="text-lg mb-6">"As a busy professional, Miss Tadka has been a lifesaver. The food reminds me of my mom's cooking - simple, nutritious, and delicious!"</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80" alt="Customer" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">Rahul M.</p>
+                                        <p class="text-sm text-gray-600">Monthly Subscriber</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-white p-8 rounded-lg shadow-md border border-gray-200 transition-colors duration-300">
+                                <div class="flex items-center mb-6">
+                                    <div class="text-[var(--primary)]">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                    </div>
+                                </div>
+                                <p class="text-lg mb-6">"The variety is amazing! Every day there's something different and exciting. The on-time delivery and packaging quality are excellent too."</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
+                                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80" alt="Customer" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">Neha K.</p>
+                                        <p class="text-sm text-gray-600">Weekly Subscriber</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center mt-8">
+                    <span class="h-3 w-3 mx-1 rounded-full bg-gray-300 cursor-pointer testimonial-dot active" data-index="0"></span>
+                    <span class="h-3 w-3 mx-1 rounded-full bg-gray-300 cursor-pointer testimonial-dot" data-index="1"></span>
+                    <span class="h-3 w-3 mx-1 rounded-full bg-gray-300 cursor-pointer testimonial-dot" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-[var(--light-bg)] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Get in Touch</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Contact Us</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block mb-2 font-medium">Name</label>
+                            <input type="text" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:outline-none transition-colors duration-300" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label class="block mb-2 font-medium">Phone</label>
+                            <input type="tel" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:outline-none transition-colors duration-300" placeholder="Your phone number">
+                        </div>
+                        <div>
+                            <label class="block mb-2 font-medium">Message</label>
+                            <textarea class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[var(--primary)] focus:outline-none transition-colors duration-300" rows="4" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button class="bg-[var(--primary)] hover:bg-[#d54d1f] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 w-full sm:w-auto">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Quick Connect</h3>
+                        <div class="space-y-6">
+                            <a href="https://wa.me/1234567890" class="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-lg transition-all duration-300">
+                                <i class="bi bi-whatsapp text-2xl mr-3"></i> Order on WhatsApp
+                            </a>
+                            <a href="tel:+911234567890" class="flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-lg transition-all duration-300">
+                                <i class="bi bi-telephone text-2xl mr-3"></i> Call Us
+                            </a>
+                            <a href="mailto:order@misstadka.com" class="flex items-center justify-center bg-red-500 hover:bg-red-600 text-white py-3 px-8 rounded-lg transition-all duration-300">
+                                <i class="bi bi-envelope text-2xl mr-3"></i> Email Us
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-6 bg-white rounded-lg shadow-md transition-colors duration-300">
+                        <h3 class="font-semibold text-lg mb-4">Our Location</h3>
+                        <p class="mb-2 flex items-start">
+                            <i class="bi bi-geo-alt text-[var(--primary)] mr-3 mt-1"></i>
+                            <span>123 Adarsh Nagar, Near City Palace, Jaipur, Rajasthan 302004</span>
+                        </p>
+                        <p class="mb-2 flex items-start">
+                            <i class="bi bi-clock text-[var(--primary)] mr-3 mt-1"></i>
+                            <span>Open Hours: 9:00 AM - 9:00 PM (Mon-Sun)</span>
+                        </p>
+                        <p class="mb-2 flex items-start">
+                            <i class="bi bi-telephone text-[var(--primary)] mr-3 mt-1"></i>
+                            <span>+91 1234567890</span>
+                        </p>
+                        <p class="flex items-start">
+                            <i class="bi bi-envelope text-[var(--primary)] mr-3 mt-1"></i>
+                            <span>order@misstadka.com</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Miss Tadka</h3>
+                    <p class="mb-4 text-gray-400">Bringing the authentic taste of home-cooked meals to your doorstep in Jaipur.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-[var(--secondary)] transition-colors">
+                            <i class="bi bi-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-[var(--secondary)] transition-colors">
+                            <i class="bi bi-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-[var(--secondary)] transition-colors">
+                            <i class="bi bi-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-[var(--secondary)] transition-colors">
+                            <i class="bi bi-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Refund Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on our menu and special offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="p-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button class="bg-[var(--primary)] hover:bg-[#d54d1f] text-white p-2 rounded-r-lg transition-colors">
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-8 mt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2023 Miss Tadka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Dark/Light mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            
+            // Update icons
+            const themeIcons = document.querySelectorAll('.theme-toggle i');
+            themeIcons.forEach(icon => {
+                if (isDark) {
+                    icon.classList.remove('bi-moon-fill');
+                    icon.classList.add('bi-sun-fill');
+                } else {
+                    icon.classList.remove('bi-sun-fill');
+                    icon.classList.add('bi-moon-fill');
+                }
+            });
+            
+            // Save preference to localStorage
+            localStorage.setItem('darkMode', isDark);
+        }
+        
+        themeToggle.addEventListener('click', toggleDarkMode);
+        mobileThemeToggle.addEventListener('click', toggleDarkMode);
+        
+        // Check for saved user preference
+        const savedDarkMode = localStorage.getItem('darkMode');
+        if (savedDarkMode === 'true') {
+            toggleDarkMode();
+        }
+        
+        // Menu slider functionality
+        const prevMenuButton = document.getElementById('prev-menu');
+        const nextMenuButton = document.getElementById('next-menu');
+        const menuSlider = document.getElementById('menu-slider');
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        let menuPosition = 0;
+        const itemWidth = menuItems[0].offsetWidth;
+        const itemMargin = 24; // 6 * 4 (rem to px conversion for gap-6)
+        const itemFullWidth = itemWidth + itemMargin;
+        
+        prevMenuButton.addEventListener('click', () => {
+            menuPosition = Math.min(menuPosition + itemFullWidth, 0);
+            menuSlider.style.transform = `translateX(${menuPosition}px)`;
+        });
+        
+        nextMenuButton.addEventListener('click', () => {
+            const maxPosition = -(menuItems.length * itemFullWidth - menuSlider.parentElement.offsetWidth);
+            menuPosition = Math.max(menuPosition - itemFullWidth, maxPosition);
+            menuSlider.style.transform = `translateX(${menuPosition}px)`;
+        });
+        
+        // Testimonials Slider
+        const testimonialSlider = document.getElementById('testimonials-slider');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const prevTestimonialBtn = document.getElementById('prev-testimonial');
+        const nextTestimonialBtn = document.getElementById('next-testimonial');
+        
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonialSlider.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update active dot
+            testimonialDots.forEach(dot => dot.classList.remove('active', 'bg-[var(--primary)]'));
+            testimonialDots[index].classList.add('active', 'bg-[var(--primary)]');
+            
+            currentTestimonial = index;
+        }
+        
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showTestimonial(parseInt(dot.dataset.index));
+            });
+        });
+        
+        prevTestimonialBtn.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonialDots.length) % testimonialDots.length;
+            showTestimonial(currentTestimonial);
+        });
+        
+        nextTestimonialBtn.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialDots.length;
+            showTestimonial(currentTestimonial);
+        });
+        
+        // Initialize first testimonial as active
+        showTestimonial(0);
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialDots.length;
+            showTestimonial(currentTestimonial);
+        }, 8000);
+        
+        // Current date for prayer times
+        const today = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('prayer-update-time').textContent = today.toLocaleDateString('en-US', options);
+        
+        // Simulate dynamic hadith fetching
+        const hadiths = [
+            {
+                text: "The Prophet Muhammad (peace be upon him) said: "The best of you are those who are best to their families, and I am the best of you to my family."",
+                source: "Reported by al-Tirmidhi"
+            },
+            {
+                text: "The Prophet Muhammad (peace be upon him) said: "None of you truly believes until he loves for his brother what he loves for himself."",
+                source: "Bukhari & Muslim"
+            },
+            {
+                text: "The Prophet Muhammad (peace be upon him) said: "The most beloved of deeds to Allah are those that are most consistent, even if they are small."",
+                source: "Sahih Muslim"
+            }
+        ];
+        
+        // Change hadith every few days based on date
+        const hadithIndex = Math.floor((today.getDate() - 1) % hadiths.length);
+        document.getElementById('hadith-text').textContent = hadiths[hadithIndex].text;
+        document.getElementById('hadith-source').textContent = hadiths[hadithIndex].source;
+        
+        // Form submission handling
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you shortly.');
+            contactForm.reset();
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
